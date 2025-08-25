@@ -1,0 +1,839 @@
+@charset "utf-8";
+/*fonts*/
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+ .video-container {
+    position: relative;
+    width: 100%;        
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    height: 0; 
+	 margin-top:16px; 
+    overflow: hidden;
+    /* padding extra eliminado */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* opcional */
+    /* padding eliminado */
+}
+
+
+    
+
+    
+
+
+.pelicula-contenedor {
+  margin-top: 20px;
+
+}
+
+.pelicula-card {
+  display: flex; /* Coloca imagen y texto en fila por defecto */
+  background: transparent;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, white, transparent) 1;
+  overflow: hidden;
+  padding-left: 17px;
+	padding-right: 17px;
+padding-bottom: 28px;
+	padding-top: 28px;
+	
+}
+
+.pelicula-img {
+  flex: 1;
+}
+
+.pelicula-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+}
+
+.pelicula-info {
+  flex: 2;
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pelicula-titulo {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.pelicula-texto {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 🔹 Cuando la pantalla sea pequeña, la imagen y el texto se apilan */
+@media (max-width: 768px) {
+  .pelicula-card {
+    flex-direction: column;
+    text-align: center; /* Opcional: centra el texto */
+  }
+
+  .pelicula-info {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+
+.contenedor-personajes {
+  padding: 25px 10px;
+  text-align: center;
+}
+
+/* Título */
+.titulo-personajes {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Botones de personajes */
+.boton-personaje {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.boton-personaje {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.boton-personaje img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.boton-personaje span {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(118,10,11,0.60); /* Fondo semitransparente */
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	padding: 8px 0;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	transition: background 0.3s ease;
+}
+
+.boton-personaje:hover img {
+  transform: scale(1.05); /* Efecto zoom */
+}
+
+.boton-personaje:hover span {
+	background-color: #7E0002;
+}
+
+/* Contenedor desplegable */
+
+
+.info-personaje {
+  display: flex;
+align-items: center;
+  margin-top: 30px;
+	margin-left: 6px;
+	margin-right: 6px;
+  padding: 20px;
+  background-color: transparent; /* Fondo transparente */
+  border: 2px solid transparent; /* Necesario para aplicar el degradado en el borde */
+  border-image: linear-gradient(to right, white, transparent) 1;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.5s ease;
+}
+
+
+/* Grid dentro del contenedor desplegable */
+
+.text_cuerpopersonaje {
+  color: #FFFFFF;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Tamaño adaptable según la pantalla */
+  line-height: 1.5; /* Mejor legibilidad */
+  text-align: left;
+  margin-bottom: 10px; /* Opcional, ajustar separación si es necesario */
+}
+
+
+
+.desp_personajes {
+color: white;
+  font-family: Michroma, sans-serif;
+  font-size: clamp(1.3rem, 4vw, 2.5rem); /* Tamaño adaptable */
+  font-weight: normal;
+  line-height: 1.4; /* Espacio entre líneas */
+  margin: 20px 0; /* Separación superior e inferior */
+  text-align: center; /* Centrar subtítulo */
+}
+
+.info-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+	
+}
+
+.info-contenido img {
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.info-texto {
+  max-width: 500px;
+  text-align: left;
+}
+
+.info-texto h3 {
+  font-size: 1.8rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+
+/* Animación */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.text_sinopsis {
+	padding: 25px;
+	color: #FFFFFF;
+	font-family: poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: clamp(0.9rem, 2vw, 1rem);
+	text-align: center;
+
+  display: flex;             /* Activamos Flexbox */
+  justify-content: center;   /* Centra horizontalmente */
+  align-items: center;       /* Centra verticalmente */
+  height: 250px;             /* Ajusta la altura del contenedor */
+
+}
+
+
+
+.timeline-wrapper {
+    width: 90%;
+    margin: auto;
+    padding: 50px 0;
+    position: relative;
+	flex-direction: column;
+}
+
+/* Línea por defecto (vertical, para pantallas pequeñas) */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: #fff;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+/* Para pantallas grandes: línea horizontal */
+@media (min-width: 768px) {
+  .timeline-line {
+    top: 5%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: auto;
+    transform: translateY(-50%);
+  }
+}
+.timeline-row {
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-col {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.timeline-item {
+	background-position: bottom;
+	border: 2px solid transparent; /* Necesario para aplicar el degradado en el borde */
+	border-image: linear-gradient(to bottom, white, transparent) 1;
+	padding: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	background-image: -webkit-linear-gradient(270deg,rgba(26,7,7,1.00) 21.76%,rgba(161,0,0,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(26,7,7,1.00) 21.76%,rgba(161,0,0,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(26,7,7,1.00) 21.76%,rgba(161,0,0,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(26,7,7,1.00) 21.76%,rgba(161,0,0,1.00) 100%);
+}
+
+
+/* Punto de conexión a la línea */
+.timeline-point {
+	width: 20px;
+	height: 20px;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	position: absolute;
+	top: -10px;
+}
+
+.timeline-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+.timeline-item h4 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    color: #ffcc00;
+    text-align: center;
+}
+
+.timeline-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+    text-align: center;
+}
+
+/* Responsivo */
+@media screen and (max-width: 992px) {
+    .timeline-col {
+        flex: 0 0 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-col {
+        flex: 0 0 80%;
+        margin: 0 auto 40px auto;
+    }
+}
+
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.imagen-fondo {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    /* Fade inferior */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}
+
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.texto-portada {
+    position: absolute;
+    left: 50%;
+    top: 82%; /* Mueve el texto más abajo */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+.titulo {
+	font-family: Michroma;
+	font-size: clamp(19px, 5vw, 75px);
+	margin: 0;
+	font-weight: 700;
+	white-space: nowrap;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.subtitulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(13px, 2.5vw, 30px); /* mínimo 14px, máximo 20px */
+    margin-top: 9px;
+	white-space: nowrap;
+}
+
+
+.font_michroma {
+	font-family: michroma;
+	font-style: normal;
+	font-weight: 600;
+	font-variant: normal;
+	font-size: clamp(0.8rem, 2vw, 1.5rem);
+	
+}
+/* Imagen adaptada dentro de botones o contenedores */
+.font_michroma img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+  margin-left: 10px;
+}
+
+/* Cuando la pantalla sea menor a 600px, reducimos el tamaño */
+@media (max-width: 600px) {
+  .font_michroma {
+    display: flex;
+    flex-direction: column; /* uno debajo del otro */
+    align-items: center;   /* centrado */
+    text-align: center;
+	  padding-left: 10px;
+	  padding-right: 10px;
+  }
+}
+	
+	/* --- Versión móvil --- */
+@media (max-width: 768px) {
+  .tiulo_nav {
+    flex-direction: column;   /* Cambia a columna */
+    align-items: center;      /* Centra todo */
+    text-align: center;
+	}}
+
+
+.font_titulocarrusel {
+	font-family: Michroma;
+	font-weight: bold;
+	font-size: clamp(1rem, 5vw, 8rem);
+}
+.bg_negro {
+	background-color: #000000;
+}
+
+.bg_nav   {
+	background-image: -webkit-linear-gradient(0deg,rgba(0,0,0,1.00) 4.66%,rgba(236,0,0,1.00) 100%);
+	background-image: -moz-linear-gradient(0deg,rgba(0,0,0,1.00) 4.66%,rgba(236,0,0,1.00) 100%);
+	background-image: -o-linear-gradient(0deg,rgba(0,0,0,1.00) 4.66%,rgba(236,0,0,1.00) 100%);
+	background-image: linear-gradient(90deg,rgba(0,0,0,1.00) 4.66%,rgba(236,0,0,1.00) 100%);
+}
+.font_subtitulo {
+	font-family: poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: clamp(1.2rem, 4vw, 3.5rem); /* más grande en pantallas grandes */
+	color: #FFFFFF;
+}
+.font_titulopag {
+	color: #FFFFFF;
+	font-family: Michroma;
+	font-style: normal;
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 45px;
+}
+.card_datos {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 23px;
+	padding-right:23px;
+	
+}
+
+
+
+.font_subpeque {
+	color: #FFFFFF;
+	font-family: poppins;
+	font-style: normal;
+	font-weight: 580;
+	font-size: 26px;
+	text-align: center;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+	.font_subpeque {
+		font-size: 22px;
+	}
+}
+.bg_end {
+	background-color: #000000;
+}
+.img_reveal {
+	opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+
+.img_reveal.visible {
+	opacity: 1;
+	transform: translateY(0);
+	font-family: Poppins;
+}
+.nav_text {
+	color: #FFFFFF;
+	font-family: Poppins;
+	font-style: normal;
+	font-size: 20px;
+}
+.text_boton {
+	color: #9E0002;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+  .font_subtitulo {
+    font-size: 0.9rem; /* más pequeño en móviles */
+  }
+}
+
+/* Texto de citas */
+.font_citas {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(0.7rem, 2.5vw, 2rem); /* Tamaño adaptable */
+  line-height: 1.2; /* Mejora la legibilidad */
+  text-align: center; /* Opcional: centra en pantallas pequeñas */
+  margin: 0.2em 0;
+}
+
+/* Texto de nombres */
+.font_nombres {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-size: clamp(0.6rem, 2vw, 1.5rem); /* Más pequeño y adaptable */
+  text-align: center;
+  display: block;
+  margin-top: 0.3em;
+}
+
+/* Ajustes extra para pantallas pequeñas */
+@media (max-width: 768px) {
+  .font_citas {
+    font-size: clamp(0.5rem, 3vw, 1.5rem);
+    padding: 0.8px; /* Para que no choque con los bordes */
+  }
+
+  .font_nombres {
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+  }
+}
+
+/* Ajustes para pantallas muy grandes */
+@media (min-width: 1400px) {
+  .font_citas {
+    max-width: 900px; /* Limita ancho de texto en pantallas gigantes */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+.card_primera {
+	  background-color: transparent; /* Fondo transparente */
+  border: 2px solid transparent; /* Necesario para aplicar el degradado en el borde */
+  border-image: linear-gradient(to right, white, transparent) 1;
+  color: white; /* Texto blanco */
+  padding: 13.1px;
+  border-radius: 10px; /* Opcional, bordes redondeados */
+
+
+}
+.text_subt {
+	font-family: Michroma;
+	font-size: 19.5px;
+	font-weight: 590;
+	color: #FFFFFF;
+}
+.text_cuerpoblanco {
+  color: #FFFFFF;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Tamaño adaptable según la pantalla */
+  line-height: 1.5; /* Mejor legibilidad */
+  text-align: center;
+  margin: 0; /* Opcional, ajustar separación si es necesario */
+}
+
+/* Ajustes para tablets */
+@media (max-width: 1024px) {
+  .text_cuerpoblanco {
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    line-height: 1.45;
+  }
+}
+
+/* Ajustes para móviles medianos */
+@media (max-width: 768px) {
+  .text_cuerpoblanco {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    line-height: 1.4;
+  }
+}
+
+/* Ajustes para móviles pequeños */
+@media (max-width: 480px) {
+  .text_cuerpoblanco {
+    font-size: clamp(0.7rem, 4vw, 0.85rem);
+    line-height: 1.35;
+  }
+}
+
+.frase-impactante {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 23vh; /* Mantiene la altura */
+  max-width: 1200px; /* Más ancho */
+  margin: 60px auto; /* Separación externa suficiente */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+  border-radius: 10px;
+  padding: 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+  text-align: center;
+}
+
+/* Animación de reveal */
+.frase-impactante.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Texto */
+.frase-impactante h1 {
+  font-family: Poppins, sans-serif;
+  font-size: clamp(1.2rem, 4vw, 2.5rem); /* Tamaño ya perfecto */
+  color: white;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Breakpoints */
+@media (max-width: 1024px) { /* Tablets */
+  .frase-impactante h1 {
+    font-size: clamp(1rem, 3.5vw, 2rem);
+  }
+}
+
+@media (max-width: 768px) { /* Móviles medianos */
+  .frase-impactante {
+    padding: 20px;
+    margin: 50px auto; /* Mantener separación adecuada */
+  }
+  .frase-impactante h1 {
+    font-size: clamp(0.9rem, 4vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+  .frase-impactante {
+    padding: 15px;
+    margin: 40px auto; /* Ajuste para móviles pequeños */
+  }
+  .frase-impactante h1 {
+    font-size: clamp(0.8rem, 5vw, 1.5rem);
+  }
+}
+
+
+
+  .reveal-icon {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+  }
+
+  /* Cuando el icono entra en pantalla */
+  .reveal-icon.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+.formulario-suscripcion {
+background-color: rgba(0, 0, 0, 0.3); /* más transparente */
+  border: none;
+  box-shadow: 0 0 15px rgba(255,0,0,0.6);
+  border-radius: 10px;
+  padding: 20px;
+	color: white;}
+
+.titulo-decorado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espacio entre líneas y texto */
+}
+
+.titulo-decorado h2 {
+  color: white;
+	font-family: Michroma;
+  font-size: clamp(1rem, 5vw, 3.5rem);
+  font-weight: bold;
+  margin: 0;
+}
+
+.titulo-decorado .linea {
+	  flex: 1;
+  height: 2px;
+  background: linear-gradient(to left, white, transparent);
+
+  max-width: 270px;
+}
+.titulo-decorado .linea:last-child {
+  background: linear-gradient(to right, white, transparent);
+}
+
+
+footer {
+  background: black;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column; /* Pone el logo encima del texto */
+  align-items: center;    /* Centra horizontalmente */
+  text-align: center;     /* Centra el texto */
+}
+
+.footer-logo img {
+  max-width: 75px; /* Ajusta el tamaño del logo */
+  height: auto;
+  margin-bottom: 8px; /* Espacio entre logo y texto */
+}
+
+.footer-title {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.footer-links, .footer-contact {
+  min-width: 200px;
+}
+
+.footer-links h3, .footer-contact h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: red;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.font_footer {
+	color: #FFFFFF;
+	font-family: Poppins;
+	font-style: normal;
+	font-size: 14px;
+	list-style-type: none;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+	.font_footer {
+		font-size: 12px;
+	}
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9em;
+  border-top: 1px solid #FFFFFF;
+}
